@@ -24,9 +24,9 @@ interface SuggestionChipsProps {
                   className="w-full h-full object-cover"
                 />
               ) : (
-                <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300" />
+                <div className="w-full h-full bg-linear-to-br from-gray-200 to-gray-300" />
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-3">
+              <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent flex items-end p-3">
                 <p className="text-white font-semibold text-sm leading-tight">
                   {suggestion.name}
                 </p>
