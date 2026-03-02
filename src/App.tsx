@@ -281,7 +281,7 @@ export default function App() {
         <div className="container mx-auto px-6 py-6">
           <h1
             onClick={handleResetToHome}
-            className="text-5xl md:text-6xl font-bold tracking-tight leading-tight bg-gradient-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent cursor-pointer hover:opacity-80 transition-opacity"
+            className="text-5xl md:text-6xl font-bold tracking-tight leading-tight bg-linear-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent cursor-pointer hover:opacity-80 transition-opacity"
           >
             Klangkompass
           </h1>
@@ -291,7 +291,7 @@ export default function App() {
         </div>
       </header>
 
-      <main className="container mx-auto px-6 py-12">
+      <main className="w-full px-8 py-12">
         <div className="mb-8">
           <SearchBar
             value={searchQuery}
@@ -310,12 +310,12 @@ export default function App() {
 
         {isSearching && (
           <div className="flex justify-center items-center py-20">
-            <Loader2 className="w-10 h-10 text-blue-500 animate-spin" />
+            <Loader2 className="w-10 h-10 text-purple-500 animate-spin" />
           </div>
         )}
 
         {!isSearching && hasSearched && (
-          <div className="max-w-4xl mx-auto">
+          <div className="w-full mx-auto px-6">
             {artists.length > 0 ? (
               <>
                 <div className="flex items-center justify-between mb-4">
@@ -334,7 +334,7 @@ export default function App() {
                   </button>
                 </div>
 
-                <div className="grid gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {artists.map((artist) => (
                     <ArtistCard key={artist.artistId} artist={artist} />
                   ))}
