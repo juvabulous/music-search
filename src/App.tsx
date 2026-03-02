@@ -4,6 +4,7 @@ import { ArtistCard } from "./components/ArtistCard";
 import type { Artist } from "./components/ArtistCard";
 import { SuggestionChips } from "./components/SuggestionChips";
 import { Download, Loader2 } from "lucide-react";
+import logo from "./assets/logo.png";
 
 const POPULAR_ARTISTS = [
   "Taylor Swift",
@@ -277,21 +278,62 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white">
-      <header className="pt-16 pb-10 text-center">
-        <div className="container mx-auto px-6 py-6">
-          <h1
-            onClick={handleResetToHome}
-            className="text-5xl md:text-6xl font-bold tracking-tight leading-tight bg-linear-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent cursor-pointer hover:opacity-80 transition-opacity"
-          >
-            Klangkompass
-          </h1>
-          <p className="mt-2 text-lg text-gray-500">
-            Auf Kurs zu deinem nächsten Lieblingskünstler
-          </p>
+      <header className="py-8 px-6">
+        <div className="max-w-7xl mx-auto">
+
+          {/* Mobile Layout */}
+          <div className="flex flex-col items-center gap-4 md:hidden">
+            <img
+              src={logo}
+              alt="Klangkompass Logo"
+              className="h-20 w-auto object-contain"
+              onClick={handleResetToHome}
+            />
+
+            <div className="text-center">
+              <h1
+                onClick={handleResetToHome}
+                className="text-4xl font-bold tracking-tight bg-linear-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent cursor-pointer"
+              >
+                Klangkompass
+              </h1>
+
+              <p className="mt-2 text-gray-500">
+                Auf Kurs zu deinem nächsten Lieblingskünstler
+              </p>
+            </div>
+          </div>
+
+          {/* Desktop Layout */}
+          <div className="hidden md:flex items-center justify-between relative">
+            <img
+              src={logo}
+              alt="Klangkompass Logo"
+              className="h-20 md:h-32 lg:h-44 w-auto object-contain"
+              onClick={handleResetToHome}
+            />
+
+            <div className="absolute left-1/2 -translate-x-1/2 text-center">
+              <h1
+                onClick={handleResetToHome}
+                className="text-5xl lg:text-6xl font-bold tracking-tight leading-tight bg-linear-to-r from-purple-600 to-blue-500 bg-clip-text text-transparent cursor-pointer"
+              >
+                Klangkompass
+              </h1>
+
+              <p className="mt-2 text-lg text-gray-500">
+                Auf Kurs zu deinem nächsten Lieblingskünstler
+              </p>
+            </div>
+
+            <div className="w-14 lg:w-20" />
+          </div>
+
         </div>
       </header>
 
-      <main className="w-full px-8 py-12">
+
+      <main className="w-full px-8 py-5">
         <div className="mb-8">
           <SearchBar
             value={searchQuery}
@@ -318,7 +360,7 @@ export default function App() {
           <div className="w-full mx-auto px-6">
             {artists.length > 0 ? (
               <>
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-3 mb-4">
                   <p className="text-gray-600">
                     Gefunden: {artists.length}{" "}
                     {artists.length === 1 ? "Ergebnis" : "Ergebnisse"}
@@ -327,10 +369,9 @@ export default function App() {
                   <button
                     onClick={handleExportCsv}
                     disabled={artists.length === 0}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-gray-200 shadow-sm hover:shadow-md disabled:opacity-50"
+                    className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-purple-500 text-white shadow-md hover:bg-purple-700 hover:shadow-lg transition disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <Download className="w-4 h-4" />
-                    Ergebnisse herunterladen
                   </button>
                 </div>
 
