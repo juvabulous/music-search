@@ -80,7 +80,7 @@ Rounded components, smooth transitions, and balanced spacing contribute to a mod
 
 The overall goal was to design an interface that feels lightweight, focused, and distraction-free — allowing users to concentrate on discovering music.
 
-![Klangkompass Screenshot](docs/screenshot.png)
+![Klangkompass Screenshot](src/docs/screenshot.png)
 
 
 ## Future Improvements
