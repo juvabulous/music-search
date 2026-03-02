@@ -1,0 +1,13 @@
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    @apply bg-white text-gray-900 antialiased;
+  }
+}
